@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: sysadminaspv
+  name: nginx
+  labels:
+    app: nginx
+    environment: sysadminaspv
+spec:
+  containers:
+  - image: zneetesh/flask-api:v2
+    name: nginx
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/var/log"
+      name: volume
+    ports:
+    - containerPort: 5000
+      protocol: TCP
+  volumes:
+    - name: volume
+      persistentVolumeClaim:
+        claimName: azurefile-pvc-01   
+--- 
+kind: Service
+apiVersion: v1
+metadata:
+  name:  nginx
+  namespace: sysadminaspv
+spec:
+  selector:
+    app: nginx
+    environment: sysadminaspv
+  type:  LoadBalancer
+  ports:
+  - port: 5000
+    targetPort: 5000
