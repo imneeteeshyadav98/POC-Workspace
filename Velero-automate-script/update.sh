@@ -46,12 +46,13 @@ schedules:
       myenv: veleronamespace
     annotations:
       myenv: veleronamespace
-    schedule: " 20  5 * * * "
+    schedule: " 1 8 * * * "
     useOwnerReferencesInBackup: true
     template:
       ttl: "240h"
       includedNamespaces:
       - linuxnamespace
+      - sysadminaspv
 EOF
 
 echo "Staring velero..."
