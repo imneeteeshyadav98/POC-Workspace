@@ -1,0 +1,11 @@
+schedules:
+  velerobackup:
+    disabled: false
+    labels:
+      myenv: veleronamespace
+    annotations:
+      myenv: veleronamespace
+    schedule: " 10  8 * * * "
+    useOwnerReferencesInBackup: true
+    template:
+      ttl: "240h"

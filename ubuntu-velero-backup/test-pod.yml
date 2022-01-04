@@ -1,0 +1,81 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azurefile-pvc-01
+  namespace: sysadminaspv
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  azureFile:
+    secretName: azure-secret
+    shareName: k8sfileshare
+    readOnly: false
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+  - mfsymlinks
+  - nobrl
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azurefile-pvc-01
+  namespace: sysadminaspv
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: sysadminaspv
+  name: nginx
+  labels:
+    app: nginx
+    environment: sysadminaspv
+spec:
+  nodeSelector:
+    "kubernetes.io/os": linux
+  containers:
+  - image: nginx
+    name: nginx
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/usr/share/nginx/"
+      name: volume
+    ports:
+    - containerPort: 80
+      protocol: TCP
+  volumes:
+    - name: volume
+      persistentVolumeClaim:
+        claimName: azurefile-pvc-01   
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name:  nginx
+  namespace: sysadminaspv
+spec:
+  selector:
+    app: nginx
+    environment: sysadminaspv
+  type:  LoadBalancer
+  ports:
+  - port:  80
+    targetPort:  80
+
