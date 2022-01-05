@@ -1,0 +1,81 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azurefile-pvc-01
+  namespace: sysadminaspvwin
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  azureFile:
+    secretName: azure-secret
+    shareName: k8sfileshare
+    readOnly: false
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+  - mfsymlinks
+  - nobrl
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azurefile-pvc-01
+  namespace: sysadminaspvwin
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: sysadminaspvwin
+  name: nginx
+  labels:
+    app: nginx
+    environment: sysadminaspvwin
+spec:
+  nodeSelector:
+    "kubernetes.io/os": windows
+  containers:
+  - image: besiddharth/pricingservice
+    name: nginxwin
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "C:/inetpub/wwwroot/hitesh/"
+      name: volume
+    ports:
+    - containerPort: 80
+      protocol: TCP
+  volumes:
+    - name: volume
+      persistentVolumeClaim:
+        claimName: azurefile-pvc-01   
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name:  nginx
+  namespace: sysadminaspvwin
+spec:
+  selector:
+    app: nginxwin
+    environment: sysadminaspvwin
+  type:  LoadBalancer
+  ports:
+  - port:  80
+    targetPort:  80
+

@@ -40,7 +40,7 @@ AZURE_RESOURCE_GROUP="${AKS_RESOURCE_GROUP}"
 EOF
 
 az account set --subscription 307229a7-f578-4e4c-b96e-522183580ae3
-az aks get-credentials --resource-group k8s-resource-01 --name k8s-cluster-01
+az aks get-credentials --resource-group k8s-resource-01 --name k8s-cluster-02
 
 kubectl create namespace veleronamespace
 
@@ -64,7 +64,7 @@ schedules:
 EOF
 
 echo "Staring velero..."
-helm install velerobackupstagingwus01 vmware-tanzu/velero --namespace veleronamespace --values=velero-values.yml  --version 2.13.2 \
+helm install velerobackupstagingwus02 vmware-tanzu/velero --namespace veleronamespace --values=velero-values.yml  --version 2.13.2 \
 	--set nodeSelector."beta\\.kubernetes\\.io/os"=linux \
 	--set initContainers[0].name=velero-plugin-for-microsoft-azure \
 	--set initContainers[0].image=velero/velero-plugin-for-microsoft-azure:master \

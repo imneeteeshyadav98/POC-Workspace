@@ -1,0 +1,73 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pricingservice-pvc
+  namespace: windowsnamespace
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: default
+  resources:
+    requests:
+      storage: 5Gi 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pricingservice
+  namespace: windowsnamespace
+  labels:
+    app: pricingservice
+    environment: windowsnamespace
+spec:
+  replicas: 1
+  template:
+    metadata: 
+      name: pricingservice
+      namespace: windowsnamespace
+      labels:
+        app: pricingservice
+        environment: windowsnamespace
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": windows
+      containers:
+      - name: pricingservice
+        image: besiddharth/pricingservice
+        resources:
+          requests:
+            cpu: 100m
+            memory: 300M
+          limits:
+            cpu: 1
+            memory: 800M
+        volumeMounts:
+        - mountPath: "C:/inetpub/wwwroot/hitesh/"
+          name: volume
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      volumes:
+      - name: volume
+        persistentVolumeClaim:
+          claimName: pricingservice-pvc
+  selector:
+    matchLabels:
+      app: pricingservice
+      environment: windowsnamespace
+   
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pricingservice
+  namespace: windowsnamespace
+spec:
+  type: LoadBalancer
+  selector:
+    app: pricingservice
+    environment: windowsnamespace
+  ports:
+  - port: 80
+    targetPort: 80
