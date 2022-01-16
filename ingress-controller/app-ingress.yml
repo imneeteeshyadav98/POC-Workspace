@@ -31,6 +31,6 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: webapp1-svc
+          serviceName: webapp2-svc
           servicePort: 80
         path: /webapp2
