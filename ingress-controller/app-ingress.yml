@@ -9,6 +9,11 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
+  tls:
+  - hosts:
+    - frontend.104.40.66.102.nip.io
+    - amazon.104.40.66.102.nip.io
+    secretName: aks-ingress-tls
   rules:
   - http:
       paths:
@@ -34,24 +39,3 @@ spec:
           serviceName: webapp2-svc
           servicePort: 80
         path: /webapp2
-  - host: windios.104.40.66.102.nip.io # change the IP address here
-    http:
-      paths:
-      - backend:
-          serviceName: sample
-          servicePort: 80
-        path: /
-  - host: test.104.40.66.102.nip.io # change the IP address here
-    http:
-      paths:
-      - backend:
-          serviceName: aks-helloworld
-          servicePort: 80
-        path: /(.*)
-  - host: test2.104.40.66.102.nip.io # change the IP address here
-    http:
-      paths:
-      - backend:
-          serviceName: ingress-demo
-          servicePort: 80
-        path: /hello-world-two(/|$)(.*)
