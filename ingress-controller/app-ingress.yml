@@ -9,11 +9,6 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
-  tls:
-  - hosts:
-    - frontend.104.40.66.102.nip.io
-    - amazon.104.40.66.102.nip.io
-    secretName: aks-ingress-tls
   rules:
   - http:
       paths:
