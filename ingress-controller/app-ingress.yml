@@ -20,35 +20,35 @@ spec:
           serviceName: webapp2-svc
           servicePort: 80
         path: /webapp2(/|$)(.*)
-  - host: frontend.13.83.6.1.nip.io # change the IP address here
+  - host: frontend.104.40.66.102.nip.io # change the IP address here
     http:
       paths:
       - backend:
           serviceName: webapp1-svc
           servicePort: 80
         path: /webapp1
-  - host: amazon.13.83.6.1.nip.io # change the IP address here
+  - host: amazon.104.40.66.102.nip.io # change the IP address here
     http:
       paths:
       - backend:
           serviceName: webapp2-svc
           servicePort: 80
         path: /webapp2
-  - host: windios.13.83.6.1.nip.io # change the IP address here
+  - host: windios.104.40.66.102.nip.io # change the IP address here
     http:
       paths:
       - backend:
           serviceName: sample
           servicePort: 80
         path: /
-  - host: test.13.83.6.1.nip.io # change the IP address here
+  - host: test.104.40.66.102.nip.io # change the IP address here
     http:
       paths:
       - backend:
           serviceName: aks-helloworld
           servicePort: 80
         path: /(.*)
-  - host: test2.13.83.6.1.nip.io # change the IP address here
+  - host: test2.104.40.66.102.nip.io # change the IP address here
     http:
       paths:
       - backend:
