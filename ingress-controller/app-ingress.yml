@@ -41,3 +41,17 @@ spec:
           serviceName: sample
           servicePort: 80
         path: /
+  - host: test.13.83.6.1.nip.io # change the IP address here
+    http:
+      paths:
+      - backend:
+          serviceName: aks-helloworld
+          servicePort: 80
+        path: /(.*)
+  - host: test2.13.83.6.1.nip.io # change the IP address here
+    http:
+      paths:
+      - backend:
+          serviceName: ingress-demo
+          servicePort: 80
+        path: /hello-world-two(/|$)(.*)
