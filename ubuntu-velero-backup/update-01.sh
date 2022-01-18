@@ -57,7 +57,7 @@ schedules:
       myenv: veleronamespace
     annotations:
       myenv: veleronamespace
-    schedule: " 40 8 * * * "
+    schedule: " 55 8 * * * "
     useOwnerReferencesInBackup: true
     template:
       ttl: "240h"
