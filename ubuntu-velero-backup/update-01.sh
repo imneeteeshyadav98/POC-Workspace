@@ -11,42 +11,6 @@ AKS_RESOURCE_GROUP="MC_k8s-resource-01_k8s-cluster-01_westus"
 #Create a resource group for the backup storage account.
 echo "Creating resource group..."
 az account set --subscription $SUBSCRIPTION
-az group create --location $LOCATION --name $VELERO_RESOURCE_GROUP_NAME
-
-#Create the storage account.
-echo "Creating storage account..."
-az storage account create --name $VELERO_STORAGE_ACCOUNT_NAME --resource-group $VELERO_RESOURCE_GROUP_NAME --location $LOCATION --kind StorageV2 --sku Standard_GRS --encryption-services blob --https-only true --access-tier Hot
-  
-#Create Blob Container.
-echo "Creating Blob Container..."
-az storage container create --name $VELERO_BLOB_CONTAINER_NAME --public-access off --account-name $VELERO_STORAGE_ACCOUNT_NAME
-
-#Set permissions for Velero.
-echo "Adding permissions for Velero..."
-VELERO_SP_APP_PASSWORD=$(az ad sp create-for-rbac --name $VELERO_SP_NAME --role "Contributor" --query 'password' --output tsv)
-VELERO_SP_APP_ID=$(az ad sp list --display-name $VELERO_SP_NAME --query [0].appId --output tsv)
-SUBSCRIPTION_ID=$(az account show --subscription $SUBSCRIPTION --query id --output tsv)
-SUBSCRIPTION_TENANT_ID=$(az account show --subscription $SUBSCRIPTION --query tenantId --output tsv)
-
-
-#Save Velero credentials to local file.
-echo "Saving velero credentials to local file: credentials-velero..."
-cat << EOF  > ./credentials-velero
-AZURE_SUBSCRIPTION_ID="${SUBSCRIPTION_ID}"
-AZURE_TENANT_ID="${SUBSCRIPTION_TENANT_ID}"
-AZURE_CLIENT_ID="${VELERO_SP_APP_ID}"
-AZURE_CLIENT_SECRET="${VELERO_SP_APP_PASSWORD}"
-AZURE_RESOURCE_GROUP="${AKS_RESOURCE_GROUP}"
-EOF
-
-az account set --subscription 307229a7-f578-4e4c-b96e-522183580ae3
-az aks get-credentials --resource-group k8s-resource-01 --name k8s-cluster-01
-
-kubectl create namespace veleronamespace
-
-
-echo "velero helm repo adding..........."
-helm repo add vmware-tanzu https://vmware-tanzu.github.io/helm-charts
 
 echo "Update values.yml ..."
 cat << EOF  > velero-values.yml
