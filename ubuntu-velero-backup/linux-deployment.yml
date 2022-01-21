@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nginx-pvc
+  namespace: testnamespace
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: default
+  resources:
+    requests:
+      storage: 5Gi 
+---
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  namespace: testnamespace
+  name: nginx
+  labels:
+    app: nginx
+    environment: testnamespace
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels: 
+        run: nginx
+    spec:
+      nodeSelector:
+      "kubernetes.io/os": linux
+      containers:
+        - image: nginx
+          name: nginx
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+    volumeMounts:
+    - mountPath: "/usr/share/nginx/html"
+      name: volume
+    ports:
+    - containerPort: 80
+      protocol: TCP
+  volumes:
+    - name: volume
+      persistentVolumeClaim:
+        claimName: nginx-pvc    
+--- 
+kind: Service
+apiVersion: v1
+metadata:
+  name:  nginx
+  namespace: testnamespace
+spec:
+  selector:
+    app: nginx
+    environment: testnamespace
+  type:  LoadBalancer
+  ports:
+  - port:  80
+    targetPort:  80

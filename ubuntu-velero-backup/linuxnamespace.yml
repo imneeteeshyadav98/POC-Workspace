@@ -1,58 +1,35 @@
 apiVersion: v1
-kind: PersistentVolumeClaim
+kind: Service
 metadata:
-  name: nginx-pvc
-  namespace: testnamespace
-spec:
-  accessModes:
-  - ReadWriteOnce
-  storageClassName: default
-  resources:
-    requests:
-      storage: 5Gi 
----
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: testnamespace
+  annotations:
+    service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
   name: nginx
   labels:
     app: nginx
-    environment: testnamespace
 spec:
-  nodeSelector:
-    "kubernetes.io/os": linux
-  containers:
-  - image: nginx
+  type: NodePort
+  ports:
+  - port: 80
     name: nginx
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 250m
-        memory: 256Mi
-    volumeMounts:
-    - mountPath: "/usr/share/nginx/html"
-      name: volume
-    ports:
-    - containerPort: 80
-      protocol: TCP
-  volumes:
-    - name: volume
-      persistentVolumeClaim:
-        claimName: nginx-pvc    
---- 
-kind: Service
-apiVersion: v1
-metadata:
-  name:  nginx
-  namespace: testnamespace
-spec:
+    targetPort: 80
+    nodePort: 32756
   selector:
     app: nginx
-    environment: testnamespace
-  type:  LoadBalancer
-  ports:
-  - port:  80
-    targetPort:  80
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginxdeployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginxcontainer
+        image: nginx:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
