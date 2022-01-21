@@ -3,7 +3,8 @@ kind: PodDisruptionBudget
 metadata:
    name: nginx-pdb
 spec:
-   minAvailable: 3
+   minAvailable: 1
+   maxUnavailable: 2
    selector:
     matchLabels:
       tier: frontend
