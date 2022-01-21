@@ -6,4 +6,4 @@ spec:
    minAvailable: 3
    selector:
     matchLabels:
-      app: guestbook
+      app: frontend
