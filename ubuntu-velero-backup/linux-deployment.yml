@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: frontend
+  namespace: linuxnamespace
   labels:
     app: frontend
     tier: frontend
