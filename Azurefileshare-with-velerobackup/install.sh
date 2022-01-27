@@ -1,11 +1,10 @@
 #Define the variables.
 SUBSCRIPTION="307229a7-f578-4e4c-b96e-522183580ae3"
 VELERO_RESOURCE_GROUP_NAME="k8s-resource-01"
-VELERO_STORAGE_ACCOUNT_NAME="k8svelerobackup01"
+VELERO_STORAGE_ACCOUNT_NAME="k8svelerobackup01" 
 VELERO_BLOB_CONTAINER_NAME="k8svelerobackup"
-VELERO_BLOB_FILESHARE_NAME="k8sfileshare"
 LOCATION="westus"
-VELERO_SP_NAME="velerobackup"
+VELERO_SP_NAME="k8svelerobackup"
 AKS_RESOURCE_GROUP="MC_k8s-resource-01_k8s-cluster-01_westus"
 
 
@@ -20,7 +19,4 @@ az storage account create --name $VELERO_STORAGE_ACCOUNT_NAME --resource-group $
 FILE_SHARE_STRING=$(az storage account show-connection-string -n $VELERO_STORAGE_ACCOUNT_NAME -g $VELERO_RESOURCE_GROUP_NAME --query 'connectionString' -o tsv)
 az storage share create --name $VELERO_BLOB_FILESHARE_NAME --quota 50 --connection-string $FILE_SHARE_STRING
 
-kubectl create namespace sysadminaspv
-
-kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=k8svelerobackup01 --from-literal=azurestorageaccountkey=pfSqKSkPDztAhst74SzCk+zfXW9otkzysTSC+NE1XkedKIU4+OOMnNaMZBFqcvEyuQ0a4WOtzFbO/CFAUBJv1w==  --namespace sysadminaspv
 
