@@ -5,7 +5,7 @@ metadata:
   namespace: sysadminaspv
 spec:
   capacity:
-    storage: 5Gi
+    storage: 15Gi
   accessModes:
     - ReadWriteMany
   azureFile:
@@ -31,7 +31,7 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 5Gi
+      storage: 15Gi
 ---
 apiVersion: v1
 kind: Pod
