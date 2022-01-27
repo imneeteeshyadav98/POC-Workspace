@@ -20,3 +20,8 @@ az storage account create --name $VELERO_STORAGE_ACCOUNT_NAME --resource-group $
 
 FILE_SHARE_STRING=$(az storage account show-connection-string -n $VELERO_STORAGE_ACCOUNT_NAME -g $VELERO_RESOURCE_GROUP_NAME --query 'connectionString' -o tsv)
 az storage share create --name $VELERO_BLOB_FILESHARE_NAME --quota 50 --connection-string $FILE_SHARE_STRING
+
+kubectl create namespace sysadminaspv
+
+kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=k8svelerobackup01 --from-literal=azurestorageaccountkey=JPdVHEC3GqRuDBQ1Vd1oCxERUQkmNo1J1tcovgS9x7az16yH6hFam9zXFqq4aKEzDyMhhOwnyjSMyT3lnxV6zQ==  --namespace sysadminaspv
+
