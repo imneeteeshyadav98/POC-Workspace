@@ -31,10 +31,22 @@ def button3():
 @app.route('/api/v1/button/button4', methods=["GET","POST"])
 def button4():
 	#data=request.headers
-    response = requests.get(url="http://104.42.186.71:5000/api/v1/button/button2")
-    print(response)
+    #response = requests.get(url="http://192.168.29.197:5000/api/v1/button/button3")
+    #print(response)
     response_data={
         "Success":"Button 4"
+        }
+    #response_data.update(response.json())
+    app.logger.info(response_data)
+    return jsonify(response_data)
+
+@app.route('/api/v1/button/button5', methods=["GET","POST"])
+def button5():
+	#data=request.headers
+    response = requests.get(url="http://192.168.29.197:5000/api/v1/button/button3")
+    print(response)
+    response_data={
+        "Success":"Button 5"
         }
     response_data.update(response.json())
     app.logger.info(response_data)
