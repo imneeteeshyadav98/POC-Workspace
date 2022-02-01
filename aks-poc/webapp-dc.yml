@@ -46,7 +46,7 @@ metadata:
     appgw.ingress.kubernetes.io/backend-path-prefix: "/"
 spec:
   rules:
-  - host: test-agic-appgw-public-ip.japaneast.cloudapp.azure.com
+  - host: agic-appgw-public-ip.japaneast.cloudapp.azure.com
     http:
       paths:
       - path: /
