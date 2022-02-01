@@ -36,7 +36,7 @@ def hello():
 	return jsonify(response_data)
 
 @app.route('/info', methods=["GET","POST"])
-def hello():
+def info():
 	#data=request.headers
 	host=request.host
 	url=request.base_url
