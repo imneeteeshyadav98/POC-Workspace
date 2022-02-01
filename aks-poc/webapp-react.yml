@@ -20,7 +20,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: helloapi
+      app: webapp-react
   template:
     metadata:
       labels:
