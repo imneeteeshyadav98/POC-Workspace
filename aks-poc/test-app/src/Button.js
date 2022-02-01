@@ -6,8 +6,10 @@ function Button() {
     <div className="App">
         <a href="http://104.42.186.71:5000/api/v1/button/button1">Button 1</a><br/>
         <a href="http://104.42.186.71:5000/api/v1/button/button2">Button 2</a><br/>
-        <a href="http://13.87.133.187:5000/api/v1/button/button3">Button 3</a><br/>
-        <a href="http://13.87.133.187:5000/api/v1/button/button4">Button 4</a>
+        <a href="http://40.78.9.231:5000/api/v1/button/button3">Button 3</a><br/>
+        <a href="http://40.78.9.231:5000/api/v1/button/button4">Button 4</a><br/>
+        <a href="http://40.78.9.231:5000/api/v1/button/button5">Button 4</a>
+
     </div>
   );
 }
