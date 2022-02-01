@@ -1,0 +1,8 @@
+FROM node:14.18.3
+WORKDIR /app
+# add app
+COPY . /app
+RUN npm install
+EXPOSE 3000
+# start app
+CMD ["npm", "start"]
