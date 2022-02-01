@@ -34,5 +34,21 @@ def hello():
 		}
 	app.logger.info(response_data)
 	return jsonify(response_data)
+
+@app.route('/info', methods=["GET","POST"])
+def hello():
+	#data=request.headers
+	host=request.host
+	url=request.base_url
+	method=request.method
+	path=request.full_path
+	response_data={
+		"Host":host,
+		"URL":url,
+		"Method":method,
+		"Path":path,
+		}
+	app.logger.info(response_data)
+	return jsonify(response_data)
 if __name__ == '__main__':
 	app.run(host="0.0.0.0",port=5000,debug=True) 
