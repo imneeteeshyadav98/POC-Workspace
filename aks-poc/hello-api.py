@@ -22,15 +22,8 @@ app.logger.addHandler(handler)
 @app.route('/button3', methods=["GET","POST"])
 def button3():
 	#data=request.headers
-	host=request.host
-	url=request.base_url
-	method=request.method
-	path=request.full_path
 	response_data={
-		"Host":host,
-		"URL":url,
-		"Method":method,
-		"Path":path,
+		"Sucess":"Button 3"
 		}
 	app.logger.info(response_data)
 	return jsonify(response_data)
@@ -38,15 +31,8 @@ def button3():
 @app.route('/button4', methods=["GET","POST"])
 def button4():
 	#data=request.headers
-	host=request.host
-	url=request.base_url
-	method=request.method
-	path=request.full_path
 	response_data={
-		"Host":host,
-		"URL":url,
-		"Method":method,
-		"Path":path,
+		"Success":"Button 4"
 		}
 	app.logger.info(response_data)
 	return jsonify(response_data)

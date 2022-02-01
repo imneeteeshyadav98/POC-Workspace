@@ -7,3 +7,7 @@
 2022-02-01 14:55:22,492 - INFO - hello-api: 	{'Host': '192.168.29.197:5000', 'URL': 'http://192.168.29.197:5000/button4', 'Method': 'GET', 'Path': '/button4?'}
 2022-02-01 14:56:02,892 - INFO - api: 	{'Host': '192.168.29.197:5000', 'URL': 'http://192.168.29.197:5000/button1', 'Method': 'GET', 'Path': '/button1?'}
 2022-02-01 14:56:05,828 - INFO - api: 	{'Host': '192.168.29.197:5000', 'URL': 'http://192.168.29.197:5000/button2', 'Method': 'GET', 'Path': '/button2?'}
+2022-02-01 16:41:33,674 - INFO - hello-api: 	{'Sucess': 'Button 3'}
+2022-02-01 16:42:42,101 - INFO - hello-api: 	{'Success': 'Button 4'}
+2022-02-01 16:45:03,424 - INFO - api: 	{'Success': 'Button 1'}
+2022-02-01 16:45:06,020 - INFO - api: 	{'Success': 'Button 2'}
