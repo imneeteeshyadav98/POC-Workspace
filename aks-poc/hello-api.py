@@ -2,6 +2,7 @@
 # /bin/bash 
 # coding=utf-8
 import os, sys
+from sre_constants import SUCCESS
 import re
 from flask import Flask, jsonify, request
 import logging
@@ -43,12 +44,14 @@ def button4():
 @app.route('/api/v1/button/button5', methods=["GET","POST"])
 def button5():
 	#data=request.headers
-    response = requests.get(url="http://104.42.186.71:5000/api/v1/button/button2")
-    print(response)
-    response_data={
-        "Success":"Button 5"
-        }
-    response_data.update(response.json())
+    res= requests.get(url="http://104.42.186.71:5000/api/v1/button/button2")
+    print(res)
+    response_data={"response":[{"Success":"Button 5"}]}
+    #response_data={[{"Success":"Button 5"}]}
+    response_data["response"].append(res.json())
+    print(response_data)
+    #response_data.update(response.json())
+    print(response_data)
     app.logger.info(response_data)
     return jsonify(response_data)
 if __name__ == '__main__':
