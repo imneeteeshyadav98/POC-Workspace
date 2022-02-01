@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-react
+  namespace: webapp-react
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 3000
+  selector:
+    app: webapp-react
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-react
+  namespace: webapp-react
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helloapi
+  template:
+    metadata:
+      labels:
+        app: webapp-react
+    spec:
+      containers:
+      - name: webapp-react
+        image: zneetesh/react
+        ports:
+        - containerPort: 3000
