@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloapi
+  namespace: helloapi
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+  selector:
+    app: helloapi
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloapi
+  namespace: helloapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helloapi
+  template:
+    metadata:
+      labels:
+        app: helloapi
+    spec:
+      containers:
+      - name: helloapi
+        image: zneetesh/flask-helloapi
+        ports:
+        - containerPort: 5000
