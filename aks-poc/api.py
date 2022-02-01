@@ -18,7 +18,7 @@ formatter = logging.Formatter(\
 handler.setFormatter(formatter)
 app.logger.addHandler(handler)
 
-@app.route('/button1', methods=["GET","POST"])
+@app.route('/api/v1/button/button1', methods=["GET","POST"])
 def button1():
 	#data=request.headers
 	response_data={
@@ -27,7 +27,7 @@ def button1():
 	app.logger.info(response_data)
 	return jsonify(response_data)
 
-@app.route('/button2', methods=["GET","POST"])
+@app.route('/api/v1/button/button2', methods=["GET","POST"])
 def button2():
 	#data=request.headers
 	response_data={
