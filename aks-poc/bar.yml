@@ -2,20 +2,21 @@ apiVersion: v1
 kind: Service
 metadata:
   name: bar-api
-  namespace: transient # I frequently delete and create poc namespace, that's why "transient"
+  namespace: linuxnamespace # I frequently delete and create poc namespace, that's why "transient"
 spec:
   type: ClusterIP
   ports:
   - port: 80
   selector:
     app: bar-api
+
 	
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bar-api
-  namespace: demo
+  namespace: linuxnamespace
 spec:
   replicas: 1
   selector:
@@ -37,7 +38,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: bar-api
-  namespace: demo
+  namespace: linuxnamespace
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/ssl-redirect: "false"
