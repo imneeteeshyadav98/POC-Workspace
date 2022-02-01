@@ -1,2 +1,3 @@
 2022-02-01 12:26:04,674 - INFO - api: 	{'Host': '192.168.29.197:5000', 'URL': 'http://192.168.29.197:5000/healthcheckup', 'Method': 'GET', 'Path': '/healthcheckup?'}
 2022-02-01 12:28:22,705 - INFO - hello-api: 	{'Host': '192.168.29.197:5000', 'URL': 'http://192.168.29.197:5000/hello', 'Method': 'GET', 'Path': '/hello?'}
+2022-02-01 13:22:13,935 - INFO - hello-api: 	{'Host': '192.168.29.197:5000', 'URL': 'http://192.168.29.197:5000/hello', 'Method': 'GET', 'Path': '/hello?'}
