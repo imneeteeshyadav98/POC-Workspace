@@ -4,7 +4,7 @@ metadata:
   name: demo-webapp 
   namespace: linuxnamespace
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
   - port: 80
   selector:
@@ -17,7 +17,7 @@ metadata:
   name: demo-webapp
   namespace: linuxnamespace
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: demo-webapp
