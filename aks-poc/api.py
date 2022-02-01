@@ -18,8 +18,24 @@ formatter = logging.Formatter(\
 handler.setFormatter(formatter)
 app.logger.addHandler(handler)
 
-@app.route('/healthcheckup', methods=["GET","POST"])
-def hello():
+@app.route('/button1', methods=["GET","POST"])
+def button1():
+	#data=request.headers
+	host=request.host
+	url=request.base_url
+	method=request.method
+	path=request.full_path
+	response_data={
+		"Host":host,
+		"URL":url,
+		"Method":method,
+		"Path":path,
+		}
+	app.logger.info(response_data)
+	return jsonify(response_data)
+
+@app.route('/button2', methods=["GET","POST"])
+def button2():
 	#data=request.headers
 	host=request.host
 	url=request.base_url

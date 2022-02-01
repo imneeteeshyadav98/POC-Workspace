@@ -19,8 +19,8 @@ handler.setFormatter(formatter)
 app.logger.addHandler(handler)
 
 
-@app.route('/hello', methods=["GET","POST"])
-def hello():
+@app.route('/button3', methods=["GET","POST"])
+def button3():
 	#data=request.headers
 	host=request.host
 	url=request.base_url
@@ -35,8 +35,8 @@ def hello():
 	app.logger.info(response_data)
 	return jsonify(response_data)
 
-@app.route('/info', methods=["GET","POST"])
-def info():
+@app.route('/button4', methods=["GET","POST"])
+def button4():
 	#data=request.headers
 	host=request.host
 	url=request.base_url
