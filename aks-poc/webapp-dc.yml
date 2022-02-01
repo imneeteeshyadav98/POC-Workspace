@@ -34,3 +34,25 @@ spec:
         env:
         - name: TITLE
           value: "AKS Ingress Test"
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-ingress
+  namespace: linuxnamespace
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+    appgw.ingress.kubernetes.io/backend-path-prefix: "/"
+spec:
+  rules:
+  - host: test-agic-appgw-public-ip.japaneast.cloudapp.azure.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: demo-webapp
+            port:
+              number: 80
