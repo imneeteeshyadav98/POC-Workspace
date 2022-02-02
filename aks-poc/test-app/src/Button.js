@@ -11,6 +11,7 @@ function Button() {
         <a href="http://13.88.28.111:5000/api/v2/microservice2/button/button5">Button 5</a><br/>
         <a href="http://13.88.28.111:5000/api/v2/microservice2/button/button5">Button 6</a><br/>
         <a href="http://13.88.28.111:5000/api/v2/microservice2/button/button5">Button 7</a><br/>
+        <a href="http://13.88.28.111:5000/api/v2/microservice2/button/button5">Button 8</a><br/>
 
     </div>
   );
