@@ -9,7 +9,7 @@ function Button() {
         <a href="http://13.88.28.111:5000/api/v2/microservice2/button/button3">Button 3</a><br/>
         <a href="http://13.88.28.111:5000/api/v2/microservice2/button/button4">Button 4</a><br/>
         <a href="http://13.88.28.111:5000/api/v2/microservice2/button/button5">Button 5</a><br/>
-        <a href="http://13.88.28.111:5000/api/v2/microservice2/button/button6">Button 6</a>
+        <a href="http://13.88.28.111:5000/api/v2/microservice2/button/button5">Button 6</a>
 
     </div>
   );
