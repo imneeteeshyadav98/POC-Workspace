@@ -43,7 +43,7 @@ def button4():
 @app.route('/api/v2/microservices2/button/button5', methods=["GET","POST"])
 def button5():
 	#data=request.headers
-    res= requests.get(url="http://52.160.88.32:5000//api/v2/microservice1/button/button2")
+    res= requests.get(url="http://52.160.88.32:5000//api/v2/microservices1/button/button2")
     print(res)
     response_data={"response":[{"Success":"Button 5"}]}
     #response_data={[{"Success":"Button 5"}]}
