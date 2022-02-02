@@ -4,11 +4,11 @@ import './App.css';
 function Button() {
   return (
     <div className="App">
-        <a href="http://104.42.186.71:5000/api/v1/button/button1">Button 1</a><br/>
-        <a href="http://104.42.186.71:5000/api/v1/button/button2">Button 2</a><br/>
-        <a href="http://40.78.9.231:5000/api/v1/button/button3">Button 3</a><br/>
-        <a href="http://40.78.9.231:5000/api/v1/button/button4">Button 4</a><br/>
-        <a href="http://40.78.9.231:5000/api/v1/button/button5">Button 5</a>
+        <a href="http://52.160.88.32:5000/api/v2/microservice1/button/button1">Button 1</a><br/>
+        <a href="http://52.160.88.32:5000/api/v2/microservice1/button/button2">Button 2</a><br/>
+        <a href="http://13.88.28.111:5000/api/v2/microservice2/button/button3">Button 3</a><br/>
+        <a href="http://13.88.28.111:5000/api/v2/microservice2/button/button4">Button 4</a><br/>
+        <a href="http://13.88.28.111:5000/api/v2/microservice2/button/button5">Button 5</a>
 
     </div>
   );
