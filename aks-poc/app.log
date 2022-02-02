@@ -49,3 +49,5 @@
 2022-02-01 22:43:52,881 - INFO - hello-api: 	{'Success': 'Button 2'}
 2022-02-01 22:55:17,729 - INFO - hello-api: 	{'response': [{'Success': 'Button 5'}, {'Success': 'Button 2'}]}
 2022-02-01 22:55:27,658 - INFO - hello-api: 	{'response': [{'Success': 'Button 5'}, {'Success': 'Button 2'}]}
+2022-02-02 09:24:17,965 - INFO - api: 	{'Success': 'Button 1'}
+2022-02-02 09:24:36,822 - INFO - api: 	{'Success': 'Button 2'}

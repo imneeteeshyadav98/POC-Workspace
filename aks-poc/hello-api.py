@@ -9,7 +9,6 @@ import logging
 from logging.handlers import RotatingFileHandler
 import requests
 
-
 from werkzeug.wrappers import response
 app = Flask(__name__)
 app.logger.setLevel(logging.INFO)
@@ -20,7 +19,7 @@ formatter = logging.Formatter(\
 handler.setFormatter(formatter)
 app.logger.addHandler(handler)
 
-@app.route('/api/v1/button/button3', methods=["GET","POST"])
+@app.route('/api/v2/microservice2/button/button3', methods=["GET","POST"])
 def button3():
 	#data=request.headers
 	response_data={
@@ -29,7 +28,7 @@ def button3():
 	app.logger.info(response_data)
 	return jsonify(response_data)
 
-@app.route('/api/v1/button/button4', methods=["GET","POST"])
+@app.route('/api/v2/microservice2/button/button4', methods=["GET","POST"])
 def button4():
 	#data=request.headers
     #response = requests.get(url="http://192.168.29.197:5000/api/v1/button/button3")
@@ -41,10 +40,10 @@ def button4():
     app.logger.info(response_data)
     return jsonify(response_data)
 
-@app.route('/api/v1/button/button5', methods=["GET","POST"])
+@app.route('/api/v2/microservice2/button/button5', methods=["GET","POST"])
 def button5():
 	#data=request.headers
-    res= requests.get(url="http://104.42.186.71:5000/api/v1/button/button2")
+    res= requests.get(url="http://104.42.186.71:5000/api/v2/microservice1/button/button2")
     print(res)
     response_data={"response":[{"Success":"Button 5"}]}
     #response_data={[{"Success":"Button 5"}]}
