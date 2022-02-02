@@ -19,7 +19,7 @@ formatter = logging.Formatter(\
 handler.setFormatter(formatter)
 app.logger.addHandler(handler)
 
-@app.route('/api/v2/microservice2/button/button3', methods=["GET","POST"])
+@app.route('/api/v2/microservices2/button/button3', methods=["GET","POST"])
 def button3():
 	#data=request.headers
 	response_data={
@@ -28,7 +28,7 @@ def button3():
 	app.logger.info(response_data)
 	return jsonify(response_data)
 
-@app.route('/api/v2/microservice2/button/button4', methods=["GET","POST"])
+@app.route('/api/v2/microservices2/button/button4', methods=["GET","POST"])
 def button4():
 	#data=request.headers
     #response = requests.get(url="http://192.168.29.197:5000/api/v1/button/button3")
@@ -40,7 +40,7 @@ def button4():
     app.logger.info(response_data)
     return jsonify(response_data)
 
-@app.route('/api/v2/microservice2/button/button5', methods=["GET","POST"])
+@app.route('/api/v2/microservices2/button/button5', methods=["GET","POST"])
 def button5():
 	#data=request.headers
     res= requests.get(url="http://52.160.88.32:5000//api/v2/microservice1/button/button2")

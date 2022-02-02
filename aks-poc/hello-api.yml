@@ -28,6 +28,6 @@ spec:
     spec:
       containers:
       - name: helloapi
-        image: zneetesh/flask-helloapi
+        image: zneetesh/flask-helloapi:v1
         ports:
         - containerPort: 5000

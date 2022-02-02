@@ -28,6 +28,6 @@ spec:
     spec:
       containers:
       - name: healthcheckup
-        image: zneetesh/flask-healthcheckup
+        image: zneetesh/flask-healthcheckup:v1
         ports:
         - containerPort: 5000
