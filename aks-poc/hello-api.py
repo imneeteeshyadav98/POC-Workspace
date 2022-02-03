@@ -19,6 +19,15 @@ formatter = logging.Formatter(\
 handler.setFormatter(formatter)
 app.logger.addHandler(handler)
 
+@app.route('/healthcheckup', methods=["GET","POST"])
+def healthcheckup():
+	#data=request.headers
+	response_data={
+		"Sucess":"200"
+		}
+	app.logger.info(response_data)
+	return jsonify(response_data)
+
 @app.route('/api/v2/microservices2/button/button3', methods=["GET","POST"])
 def button3():
 	#data=request.headers

@@ -6,7 +6,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 5000
+  - port: 80
   selector:
     app: healthcheckup
 ---
@@ -28,6 +28,6 @@ spec:
     spec:
       containers:
       - name: healthcheckup
-        image: zneetesh/flask-healthcheckup:v1
+        image: zneetesh/flask-healthcheckup:v2
         ports:
-        - containerPort: 5000
+        - containerPort: 80

@@ -1,6 +1,6 @@
 FROM zneetesh/logrotate
 WORKDIR /app
 COPY api.py /app
-EXPOSE 5000 80
+EXPOSE 80
 ENTRYPOINT ["python3"]
 CMD ["api.py"]
