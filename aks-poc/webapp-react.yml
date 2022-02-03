@@ -28,6 +28,6 @@ spec:
     spec:
       containers:
       - name: webapp-react
-        image: zneetesh/react:v11
+        image: zneetesh/react:v12
         ports:
         - containerPort: 3000
