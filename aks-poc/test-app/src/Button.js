@@ -9,8 +9,8 @@ function Button() {
         <a href="http://testapp.appscoop.in/api/v2/microservices2/button/button3">Button 3</a><br/>
         <a href="http://testapp.appscoop.in/api/v2/microservices2/button/button4">Button 4</a><br/>
         <a href="http://testapp.appscoop.in/api/v2/microservices2/button/button5">Button 5</a><br/>
-        <a href="http://testapp.appscoop.in/healthcheckup">Healthcheckup 1</a><br/>
-        <a href="http://testapp.appscoop.in/healthcheckup">Healthcheckup 2</a><br/>
+        <a href="http://testapp.appscoop.in/api/v2/microservices1/healthcheckup">Healthcheckup 1</a><br/>
+        <a href="http://testapp.appscoop.in/api/v2/microservices2/healthcheckup">Healthcheckup 2</a><br/>
 
     </div>
   );
