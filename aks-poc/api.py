@@ -18,7 +18,7 @@ formatter = logging.Formatter(\
 handler.setFormatter(formatter)
 app.logger.addHandler(handler)
 
-@app.route('/healthcheckup', methods=["GET","POST"])
+@app.route('/api/v2/microservices1/healthcheckup', methods=["GET","POST"])
 def healthcheckup():
 	#data=request.headers
 	response_data={

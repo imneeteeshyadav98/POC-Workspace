@@ -28,6 +28,6 @@ spec:
     spec:
       containers:
       - name: healthcheckup
-        image: zneetesh/flask-healthcheckup:v2
+        image: zneetesh/flask-healthcheckup:v3
         ports:
         - containerPort: 80
