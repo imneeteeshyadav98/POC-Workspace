@@ -28,7 +28,6 @@ metadata:
     environment: nodepool
 spec:
   nodeSelector:
-    "kubernetes.io/os": linux
     agentpool: testnodepool
   containers:
   - image: nginx
