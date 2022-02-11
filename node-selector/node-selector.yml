@@ -29,7 +29,7 @@ metadata:
 spec:
   nodeSelector:
     "kubernetes.io/os": linux
-    agentpool: agentpool
+    agentpool: testnodepool
   containers:
   - image: nginx
     name: nginx
