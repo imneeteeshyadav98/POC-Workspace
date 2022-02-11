@@ -28,7 +28,7 @@ metadata:
     environment: nodepool
 spec:
   nodeSelector:
-    agentpool: testnodepool
+    agentpool: agentpool
   containers:
   - image: nginx
     name: nginx
