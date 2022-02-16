@@ -65,7 +65,7 @@ schedules:
 EOF
 
 echo "Staring velero..."
-helm install veleronamespacessstg vmware-tanzu/velero --namespace veleronamespacessstg --values=velero-values.yml --version=2.27.2 \
+helm install veleronamespacessstg vmware-tanzu/velero --namespace veleronamespace --values=velero-values.yml --version=2.27.2 \
         --set nodeSelector."beta\\.kubernetes\\.io/os"=linux \
         --set initContainers[0].name=velero-plugin-for-microsoft-azure \
         --set initContainers[0].image=velero/velero-plugin-for-microsoft-azure:master \
