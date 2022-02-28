@@ -1,33 +1,33 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: webapp-react
-  namespace: webapp-react
+  name: webapp-react-nginx
+  namespace: webapp-react-nginx
 spec:
   type: LoadBalancer
   ports:
   - port: 3000
   selector:
-    app: webapp-react
+    app: webapp-react-nginx
 ---
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webapp-react
-  namespace: webapp-react
+  name: webapp-react-nginx
+  namespace: webapp-react-nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: webapp-react
+      app: webapp-react-nginx
   template:
     metadata:
       labels:
-        app: webapp-react
+        app: webapp-react-nginx
     spec:
       containers:
-      - name: webapp-react
+      - name: webapp-react-nginx
         image: zneetesh/react:v14
         ports:
         - containerPort: 3000
