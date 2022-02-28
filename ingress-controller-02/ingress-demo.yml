@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld-one
-        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+        image: zneetesh/react:v14
         ports:
         - containerPort: 80
         env:
