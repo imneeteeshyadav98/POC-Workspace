@@ -26,11 +26,12 @@ spec:
             name: aks-helloworld-two
             port:
               number: 80
+      - path: //api/v2/microservices1/healthcheckup(/|$)(.*)
       - path: /(.*)
         pathType: Prefix
         backend:
           service:
-            name: webapp-react-nginx
+            name: healthcheckup
             port:
               number: 80
 ---
