@@ -4,7 +4,7 @@ metadata:
   name: healthcheckup 
   namespace: webapp-react-nginx
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - port: 80
   selector:
