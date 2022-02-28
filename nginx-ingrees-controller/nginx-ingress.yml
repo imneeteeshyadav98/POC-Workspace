@@ -19,7 +19,7 @@ spec:
             name: webapp-react-nginx
             port:
               number: 80
-      - path: /healthcheckup(/|$)(.*)
+      - path: /api/v2/microservices1/healthcheckup
         pathType: Prefix
         backend:
           service:
