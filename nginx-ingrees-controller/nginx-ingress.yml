@@ -30,8 +30,8 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: hello-world-ingress-static
-  namespace: ingress 
+  name: webapp-react-nginx
+  namespace: webapp-react-nginx 
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
