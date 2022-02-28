@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: healthcheckup 
+  namespace: webapp-react-nginx
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: healthcheckup
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: healthcheckup
+  namespace: webapp-react-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: healthcheckup
+  template:
+    metadata:
+      labels:
+        app: healthcheckup
+    spec:
+      containers:
+      - name: healthcheckup
+        image: zneetesh/flask-healthcheckup:v3
+        ports:
+        - containerPort: 80
