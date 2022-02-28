@@ -28,7 +28,7 @@ metadata:
   name: aks-helloworld-one
   namespace: ingress 
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - port: 80
   selector:
