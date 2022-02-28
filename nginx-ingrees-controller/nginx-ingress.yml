@@ -19,18 +19,11 @@ spec:
             name: webapp-react-nginx
             port:
               number: 80
-      - path: /hello-world-two(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: aks-helloworld-two
-            port:
-              number: 80
       - path: /(.*)
         pathType: Prefix
         backend:
           service:
-            name: aks-helloworld-one
+            name: webapp-react-nginx
             port:
               number: 80
 ---
@@ -51,7 +44,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: aks-helloworld-one
+            name: webapp-react-nginx
             port: 
               number: 80
         path: /static(/|$)(.*)
