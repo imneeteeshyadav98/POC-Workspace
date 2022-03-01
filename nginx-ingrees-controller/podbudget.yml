@@ -1,0 +1,10 @@
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+   name: webapp-react-nginx
+   namespace: webapp-react-nginx
+spec:
+   maxUnavailable: 1
+   selector:
+    matchLabels:
+      app: webapp-react-nginx
