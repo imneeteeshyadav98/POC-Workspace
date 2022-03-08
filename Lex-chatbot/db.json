@@ -1,0 +1,22 @@
+{
+    "doctor_list": [
+        {
+        "text": "Mike",
+        "value": "Mike"
+    },
+    {
+        "text": "John",
+        "value": "John"
+    }
+    ],
+    "locations": [
+        {
+            "text": "Dallas",
+            "value": "Dallas"
+        },
+        {
+            "text": "Austin Texas",
+            "value": "Austin Texas"
+        }
+    ]
+}
