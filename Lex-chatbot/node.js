@@ -32,13 +32,12 @@ function deleGate(sessionAttributes,slots){
         }
     };
 }
-
-var delegate = {
-    sessionAttributes: {},
-    dialogAction: {
-        "type": "Delegate",
-        "slots": null
+function isvalidLocation(location){
+    if(location=='Dallas'||location=='Austin Texas')
+    {
+        return true;
     }
+    return false;
 }
 
 var doctors=['John','Mike']
@@ -49,7 +48,6 @@ function dispatch(lexInput,callback)
     var slots=lexInput.currentIntent.slots;
     var intentName=lexInput.currentIntent.name;
     var slotToElicit="date_of_appointment";
-    delegate.dialogAction.slots=slots;
     var message={'contentType': 'PlainText', 'content': "For which date you want the appointment to be booked"}
     /*
     if(slots['doctor_name']&&doctors.indexOf(slots['doctor_name'])<0)
@@ -71,7 +69,27 @@ function dispatch(lexInput,callback)
    }
    else if(slots['location']&&slots['doctor_name']==null)
    {
-
+       if(isvalidLocation(slots['location'])){
+           var doctor_responseCard={
+               "version": null,
+               'contentType': 'application/vnd.amazonaws.card.generic',
+               'genericAttachments': [{
+                'buttons': db.doctor_list
+            }]}
+            message.content="Got, It. Whom do you want to meet",
+            callback(elicitSlot({},slots,'doctor_name',intentName,message,doctor_responseCard))
+       }
+       else{
+           var location_responsCard= {
+            'version': null,
+            'contentType': 'application/vnd.amazonaws.card.generic',
+            'genericAttachments': [{
+                'buttons': db.locations
+            }]}
+        message.content=slots['location']+ "is not a valid location Please pick the right location from the options below",
+        callback(elicitSlot({},slots,'location',intentName,message,location_responsCard))
+           
+       }
    }
    else if(slots['location']&&slots['doctor_name']&&slots['doctor_of_appointment']==null){
    }
