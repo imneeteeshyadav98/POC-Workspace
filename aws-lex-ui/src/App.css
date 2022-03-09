@@ -1,11 +1,64 @@
-.App {
+/* .App {
   text-align: center;
+} */
+.navbar{
+  background-color: white;
+  float: right;
+  margin-top: -80px;
+}
+.navbar ul{
+  overflow: auto;
+  float: left;
+}
+.navbar li{
+  float: left;
+  list-style: none;
+  margin: 13px 20px;
+}
+.navbar li a{
+  padding: 3px 3px;
+  text-decoration: none;
+}
+.Chat {
+  z-index: 10000;
+  position: fixed;
+  -webkit-box-shadow: 0 5px 30px 0 rgba(0,0,0,.15),0 5px 4px 0 rgba(0,0,0,.26)!important;
+  box-shadow: 0 5px 30px 0 rgba(0,0,0,.15),0 5px 4px 0 rgba(0,0,0,.26)!important;
+  bottom: 30px;
+  right: 30px;
+  width: 24px;
+  height: 24px;
+  background-color: #289F95;
+  border-radius: 30px 8px 30px 30px;
+  padding: 17px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-chatbot-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #c7d3d4ff;
+  border: none;
+  position: fixed;
+  bottom: 45px;
+  z-index: 9999;
+  /* left: 40px; */
+  right: 15px;
+  
 }
+.app-chatbot-button-icon {
+  width: 25px;
+  height: 25px;
+}
+/* .App-logo {
+  height: 100vmin;
+  float: right;
+  bottom: 0px;
+  position: fixed;
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,23 +66,86 @@
   }
 }
 
-.App-header {
+.react-chatbot-kit-chat-container {
+  position: relative;
+  width: 275px;
+  bottom: -90px;
+}
+.react-chatbot-kit-chat-inner-container {
+  height: 500px;
+  background-color: #fff;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+.react-chatbot-kit-chat-header {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #EFEFEF;
+  font-family: Arial;
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #514F4F;
+  padding: 12.5px;
+  font-weight: bold;
+}
+.react-chatbot-kit-chat-input-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+}
+.react-chatbot-kit-chat-message-container {
+  padding: 0 17.5px 10px 17.5px;
+  overflow: scroll;
+  height: 424px;
+}
+.react-chatbot-kit-chat-input {
+  width: 100%;
+  padding: 12.5px;
+  border: none;
+  font-size: 0.85rem;
+  border-top: 1px solid #D8D8D8;
+  border-bottom-left-radius: 5px;
+}
+.react-chatbot-kit-chat-input-form {
+  width: 100%;
+  display: flex;
+}
+.react-chatbot-kit-chat-input::placeholder {
+  color: #585858;
+}
+.react-chatbot-kit-chat-btn-send {
+  background-color: #2898EC;
+  width: 100px;
+  border: none;
+  color: #fff;
+  border-bottom-right-radius: 5px;
+}
+.react-chatbot-kit-chat-btn-send-icon {
+  fill: #fff;
+  width: 15px;
+}
+
+.bodyImage {
   background-image: url(https://medical-chatbot-image.s3.amazonaws.com/health-04.png);
-  height: 100vh;
+  height: 90vh;
   background-repeat:no-repeat;
   background-position: center;
-  background-size: 1400px 700px;
+  background-size: 1400px 800px;
+  margin-top: 70px;
 }
-
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
-  }
+  } 
 }
+*/
