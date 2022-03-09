@@ -146,6 +146,7 @@
 			var responsePara = document.createElement("P");
 			responsePara.className = 'lexResponse';
 			if (lexResponse.message) {
+				console.log(lexResponse);
 				responsePara.appendChild(document.createTextNode(lexResponse.message));
 				responsePara.appendChild(document.createElement('br'));
 			}
