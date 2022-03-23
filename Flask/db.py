@@ -30,15 +30,8 @@ def db_connection():
 
 
 # mycursor.execute("CREATE DATABASE mydatabase")
-
-
-
-
-
 # def db_connection():
-
 # mydb.execute("CREATE TABLE doctor_details (name VARCHAR(255), address VARCHAR(255),email VARCHAR(200),gender VARCHAR(20),specialization VARCHAR(200),phone_number VARCHAR(10))")
-
 # mydb.execute("DROP tables doctor_name")
 # mydb.execute("DROP TABLE chatbot.doctor_name")
 # mydb.execute("SHOW TABLES")
@@ -46,8 +39,27 @@ def db_connection():
 #     print(x)
 
 
-# sql="insert into doctor_details (name,address,email,gender,specialization,phone_number) VALUES(%s,%s,%s,%s,%s,%s)"
-# val=("Neetesh","MMIG C-146 Aashiyana Phase-1 moradabad","neeteeshyadav98@gmail.com","M","Emergency Doctor",7839426854)
-# mydb.execute(sql,val)
-# conn.commit()
+# mydb=db_connection()
+# mydb1=mydb.cursor()
+# sql="insert into appointment_type (ID,appointment_type) VALUES(%s,%s)"
+# val=(3,"Urgent Case")
+# mydb1.execute(sql,val)
+# mydb.commit()
+
+
+
+# mydb=db_connection()
+# mydb1=mydb.cursor()
+# sql="insert into patient_type (ID,patient) VALUES(%s,%s)"
+# val=(2,"Some one else")
+# mydb1.execute(sql,val)
+# mydb.commit()
 # print(mydb.rowcount, "record inserted")
+
+
+# mydb=db_connection()
+# mydb1=mydb.cursor()
+# sql="insert into treatment_type (ID,type_of_treatment) VALUES(%s,%s)"
+# val=(7,"Oncologist")
+# mydb1.execute(sql,val)
+# mydb.commit()
