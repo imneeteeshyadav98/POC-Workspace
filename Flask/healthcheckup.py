@@ -7,7 +7,6 @@ from flask import Flask, jsonify, request
 import logging
 from logging.handlers import RotatingFileHandler
 from db import db_connection
-from appointment_type import appointment_type
 from werkzeug.wrappers import response
 app = Flask(__name__)
 app.logger.setLevel(logging.INFO)

@@ -21,14 +21,13 @@ def db_connection():
                 db = "chatbot", #test
         )
         return conn
+
+
 # mydb=db_connection()
 # mydb1=mydb.cursor()
 # mydb1.execute("show databases")
 # for x in mydb1:
 #         print(x)
-
-
-
 # mycursor.execute("CREATE DATABASE mydatabase")
 # def db_connection():
 # mydb.execute("CREATE TABLE doctor_details (name VARCHAR(255), address VARCHAR(255),email VARCHAR(200),gender VARCHAR(20),specialization VARCHAR(200),phone_number VARCHAR(10))")
