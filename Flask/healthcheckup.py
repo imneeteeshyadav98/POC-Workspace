@@ -8,7 +8,11 @@ import logging
 from logging.handlers import RotatingFileHandler
 from db import db_connection
 from werkzeug.wrappers import response
+from flask import Flask, jsonify
+from flask_cors import CORS, cross_origin
 app = Flask(__name__)
+# cors=CORS(app,resources={r'/api/*': {'origins': 'http://127.0.0.1:5500/'}})
+CORS(app)
 app.logger.setLevel(logging.INFO)
 app.logger.disabled = False
 handler = logging.handlers.RotatingFileHandler("app.log",'a',maxBytes=1024 * 1024 * 100,backupCount=20)
@@ -18,6 +22,7 @@ handler.setFormatter(formatter)
 app.logger.addHandler(handler)
 
 @app.route('/', methods=["GET","POST"])
+@cross_origin()
 def index():
     if request.method=="GET":
         response_data="Welcome!!!!!!!!!!"
@@ -28,6 +33,7 @@ def index():
         return message
 
 @app.route('/api/v2/microservices1/healthcheckup', methods=["GET","POST"])
+# @cross_origin()
 def healthcheckup():
     if request.method=="GET" and db_connection():
         response_data={
@@ -74,7 +80,6 @@ def patient_type():
         if appointment_type is not None:
             app.logger.info(patient_type)
             return jsonify(patient_type)
-
 
 @app.route("/api/v2/microservices1/treatment_type",methods=["GET"])
 def treatment_type():

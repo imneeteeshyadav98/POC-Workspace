@@ -62,3 +62,11 @@ def db_connection():
 # val=(7,"Oncologist")
 # mydb1.execute(sql,val)
 # mydb.commit()
+# mydb.execute("CREATE TABLE doctor_details (name VARCHAR(255), address VARCHAR(255),email VARCHAR(200),gender VARCHAR(20),specialization VARCHAR(200),phone_number VARCHAR(10))")
+
+# mydb=db_connection()
+# mydb1=mydb.cursor()
+# sql="insert into doctor_details (name,address,email) VALUES(%s,%s,%s)"
+# val=("shalini","Taro ke sahar me","shalini@gmail.com")
+# mydb1.execute(sql,val)
+# mydb.commit()
