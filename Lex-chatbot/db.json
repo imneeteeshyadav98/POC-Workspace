@@ -19,10 +19,28 @@
             "value": "Austin Texas"
         }
     ],
-    "appointment":[
+    "appointments": [
         {
-            "text": "tommorrow",
-            "value": "tommorrow"
+            "text": "Book an appointment",
+            "value": "Book an appointment"
+        },
+        {
+            "text": "Register paitent",
+            "value": "Register paitent"
+        },
+         {
+            "text": "Urgent case",
+            "value": "Urgent case"
+        }
+    ],
+    "booking_type": [
+        {
+            "text": "Self",
+            "value": "Self"
+        },
+        {
+            "text": "Someone else",
+            "value": "Someone else"
         }
     ]
 }
