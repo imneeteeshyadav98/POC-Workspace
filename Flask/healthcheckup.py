@@ -65,7 +65,7 @@ def appointment_type():
     cursor=conn.cursor()
     if request.method=="GET":
         cursor.execute("select * from appointment_type")
-        appointment_type=[dict(ID=row[0],Appointment_type=row[1]) for row in cursor.fetchall()]
+        appointment_type=[dict(ID=row[0],text=row[1],value=row[2]) for row in cursor.fetchall()]
         if appointment_type is not None:
             app.logger.info(appointment_type)
             return jsonify(appointment_type)
