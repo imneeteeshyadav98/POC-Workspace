@@ -1,0 +1,61 @@
+{
+    "paitent_relation": [
+        {
+        "text": "Self",
+        "value": "Self"
+    },
+    {
+        "text": "Some one else",
+        "value": "Some one else"
+    }
+    ],
+    "appointment_type": [
+        {
+        "text": "Book an appointment",
+        "value": "Book an appointment"
+    },
+    {
+        "text": "Register paitent",
+        "value": "Register paitent"
+    },
+    {
+        "text": "Urgent Case",
+        "value": "Urgent Case"
+    }
+    ],
+    "locations":[
+        {
+            "text": "Dallas",
+            "value": "Dallas"
+        },
+        {
+            "text": "Austin Texas",
+            "value": "Austin Texas"
+        }
+    ],
+    "doctor_list": [
+        {
+        "text": "Mike",
+        "value": "Mike"
+    },
+    {
+        "text": "John",
+        "value": "John"
+    }
+    ],
+    "healthspecialization": [
+        {
+            "text": "Primary care ",
+            "value": "Primary care "
+        },
+        {
+            "text": "Cardiologist",
+            "value": "Cardiologist"
+        },
+        {
+            "text": "Gynecologist",
+            "value": "Gynecologist"
+        }
+    ]
+        
+}
