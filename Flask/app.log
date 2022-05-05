@@ -601,3 +601,7 @@
 2022-03-29 07:14:51,399 - INFO - healthcheckup: 	[{'ID': 1, 'Appointment_type': 'Book an appointment'}, {'ID': 2, 'Appointment_type': 'Register paitent'}, {'ID': 3, 'Appointment_type': 'Urgent Case'}]
 2022-03-29 07:15:02,582 - INFO - healthcheckup: 	[{'ID': 1, 'Appointment_type': 'Book an appointment'}, {'ID': 2, 'Appointment_type': 'Register paitent'}, {'ID': 3, 'Appointment_type': 'Urgent Case'}]
 2022-03-29 07:15:10,222 - INFO - healthcheckup: 	[{'ID': 1, 'Appointment_type': 'Book an appointment'}, {'ID': 2, 'Appointment_type': 'Register paitent'}, {'ID': 3, 'Appointment_type': 'Urgent Case'}]
+2022-05-05 16:07:19,671 - INFO - healthcheckup: 	Welcome!!!!!!!!!!
+2022-05-05 16:07:39,618 - INFO - healthcheckup: 	[{'text': 'Book an appointment', 'value': 'Book an appointment'}, {'text': 'Register paitent', 'value': 'Register paitent'}, {'text': 'Urgent Case', 'value': 'Urgent Case'}]
+2022-05-05 16:08:09,724 - INFO - healthcheckup: 	Welcome!!!!!!!!!!
+2022-05-05 16:08:20,117 - INFO - healthcheckup: 	[{'text': 'Book an appointment', 'value': 'Book an appointment'}, {'text': 'Register paitent', 'value': 'Register paitent'}, {'text': 'Urgent Case', 'value': 'Urgent Case'}]
